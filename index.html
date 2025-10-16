@@ -154,7 +154,7 @@
         .product-image {
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 300px;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -163,6 +163,7 @@
             justify-content: center;
             color: #666;
             font-size: 1.1rem;
+            overflow: hidden; /* 防止内容溢出 */
         }
 
         .product-image img {
@@ -170,7 +171,11 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
+            position: absolute; /* 绝对定位确保图片完全填充容器 */
+            top: 0;
+            left: 0;
         }
+
 
         .product-name {
             font-size: 2rem;
@@ -517,7 +522,7 @@
         <div class="featured-product">
             <div class="product-image">
                 <a href="https://www.xiaohongshu.com/goods-detail/68c12fb0403edf0015356dc0?xsec_token=XBh_HPq8CYHJKw8-aqIMTZxA4Y8376K-PMYkgm_eZs_yc=&xsec_source=app_share&instation_link=xhsdiscover%3A%2F%2Fgoods_detail%2F68c12fb0403edf0015356dc0%3Ftrade_ext%3DeyJjaGFubmVsSW5mbyI6bnVsbCwiZHNUb2tlbkluZm8iOm51bGwsInNoYXJlTGluayI6Imh0dHBzOi8vd3d3LnhpYW9ob25nc2h1LmNvbS9nb29kcy1kZXRhaWwvNjhjMTJmYjA0MDNlZGYwMDE1MzU2ZGMwP2FwcHVpZD02NzM4YTBjYjAwMDAwMDAwMDgwMGI2OTUiLCJsaXZlSW5mbyI6bnVsbCwic2hvcEluZm8iOm51bGwsImdvb2RzTm90ZUluZm8iOm51bGwsImNoYXRJbmZvIjpudWxsLCJzZWFyY2hJbmZvIjpudWxsLCJwcmVmZXIiOm51bGx9%26rate_limit_meta%3DitemId%253D68c12fb0403edf0015356db5%26source%3D%26rn%3Dtrue&share_id=94ae3b8487414282af4f974f0926dcdc&share_channel=wechat" style="color: #666; text-decoration: none;">
-                     <img src="https://baizhuan017.58wos.com.cn/CdjZyXwVCdsf/kolvisualcontentvault/d1b045760cad484200000199ec0f3d75.jpg" alt="舒适棉质睡衣套装" loading="lazy">
+                    <img src="https://baizhuan017.58wos.com.cn/CdjZyXwVCdsf/kolvisualcontentvault/d1b045760cad484200000199ec0f3d75.jpg" alt="舒适棉质睡衣套装" loading="lazy">
                 </a>
             </div>
             <div class="product-info">
