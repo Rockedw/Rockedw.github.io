@@ -5,146 +5,692 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蚌埠市禹会区麦麦电子商务工作室 - 优质睡衣生活用品</title>
     <meta name="description" content="蚌埠市禹会区麦麦电子商务工作室专业销售优质睡衣、居家服饰等生活用品，为您提供舒适的居家体验">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部样式 */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav a:hover {
+            opacity: 0.8;
+        }
+
+        .nav a.active {
+            opacity: 1;
+            border-bottom: 2px solid white;
+            padding-bottom: 2px;
+        }
+
+        /* 主横幅样式 */
+        .hero {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .company-type {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 通用区块样式 */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* 产品展示样式 */
+        .products {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .featured-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-name {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .product-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .product-features {
+            list-style: none;
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .product-card .placeholder-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h4 {
+            padding: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .product-card p {
+            padding: 0 1rem 1rem;
+            color: #666;
+        }
+
+        /* 关于我们样式 */
+        .about {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .about-content {
+            text-align: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .feature p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 联系我们样式 */
+        .contact {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .contact-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .contact-item p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .contact-item strong {
+            color: #333;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* 移动端菜单样式 */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header .container {
+                flex-direction: column;
+                gap: 1rem;
+                position: relative;
+            }
+
+            .nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(102, 126, 234, 0.95);
+                backdrop-filter: blur(10px);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav.mobile-active {
+                max-height: 200px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .nav ul {
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .featured-product {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-image {
+                order: 2;
+            }
+
+            .product-info {
+                order: 1;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .products, .about, .contact {
+                padding: 3rem 0;
+            }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 加载动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card, .feature, .contact-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
 <body>
-    <!-- 头部导航 -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1>麦麦电子商务工作室</h1>
-                <span class="subtitle">优质生活，从舒适开始</span>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#home">首页</a></li>
-                    <li><a href="#products">产品展示</a></li>
-                    <li><a href="#about">关于我们</a></li>
-                    <li><a href="#contact">联系我们</a></li>
-                </ul>
-            </nav>
+<!-- 头部导航 -->
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h1>麦麦电子商务工作室</h1>
+            <span class="subtitle">优质生活，从舒适开始</span>
         </div>
-    </header>
+        <button class="mobile-menu-toggle">☰</button>
+        <nav class="nav">
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#products">产品展示</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <!-- 主横幅 -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>蚌埠市禹会区麦麦电子商务工作室</h2>
-                <p class="company-type">(个体工商户)</p>
-                <p class="hero-description">专业提供优质睡衣、居家服饰等生活用品<br>让每个夜晚都充满舒适与温馨</p>
-                <a href="#products" class="cta-button">查看产品</a>
-            </div>
+<!-- 主横幅 -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h2>蚌埠市禹会区麦麦电子商务工作室</h2>
+            <p class="company-type">(个体工商户)</p>
+            <p class="hero-description">专业提供优质睡衣、居家服饰等生活用品<br>让每个夜晚都充满舒适与温馨</p>
+            <a href="#products" class="cta-button">查看产品</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 产品展示区 -->
-    <section id="products" class="products">
-        <div class="container">
-            <h2 class="section-title">推广产品</h2>
-            
-            <!-- 主推产品 -->
-            <div class="featured-product">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" alt="舒适棉质睡衣套装" loading="lazy">
+<!-- 产品展示区 -->
+<section id="products" class="products">
+    <div class="container">
+        <h2 class="section-title">推广产品</h2>
+
+        <!-- 主推产品 -->
+        <div class="featured-product">
+            <div class="product-image">
+                <a href="https://www.xiaohongshu.com/goods-detail/68c12fb0403edf0015356dc0?xsec_token=XBh_HPq8CYHJKw8-aqIMTZxA4Y8376K-PMYkgm_eZs_yc=&xsec_source=app_share&instation_link=xhsdiscover%3A%2F%2Fgoods_detail%2F68c12fb0403edf0015356dc0%3Ftrade_ext%3DeyJjaGFubmVsSW5mbyI6bnVsbCwiZHNUb2tlbkluZm8iOm51bGwsInNoYXJlTGluayI6Imh0dHBzOi8vd3d3LnhpYW9ob25nc2h1LmNvbS9nb29kcy1kZXRhaWwvNjhjMTJmYjA0MDNlZGYwMDE1MzU2ZGMwP2FwcHVpZD02NzM4YTBjYjAwMDAwMDAwMDgwMGI2OTUiLCJsaXZlSW5mbyI6bnVsbCwic2hvcEluZm8iOm51bGwsImdvb2RzTm90ZUluZm8iOm51bGwsImNoYXRJbmZvIjpudWxsLCJzZWFyY2hJbmZvIjpudWxsLCJwcmVmZXIiOm51bGx9%26rate_limit_meta%3DitemId%253D68c12fb0403edf0015356db5%26source%3D%26rn%3Dtrue&share_id=94ae3b8487414282af4f974f0926dcdc&share_channel=wechat" style="color: #666; text-decoration: none;">
+                    产品图片展示区<br>点击查看详情
+                </a>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">舒适棉质睡衣套装</h3>
+                <div class="product-description">
+                    <p>采用优质纯棉面料，柔软透气，亲肤舒适。精致的剪裁设计，让您在家中也能享受优雅的居家时光。</p>
+                    <ul class="product-features">
+                        <li>100%优质棉质面料</li>
+                        <li>柔软透气，四季适宜</li>
+                        <li>精致剪裁，版型优雅</li>
+                        <li>多种颜色可选</li>
+                        <li>机洗方便，不易变形</li>
+                    </ul>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-name">舒适棉质睡衣套装</h3>
-                    <div class="product-description">
-                        <p>采用优质纯棉面料，柔软透气，亲肤舒适。精致的剪裁设计，让您在家中也能享受优雅的居家时光。</p>
-                        <ul class="product-features">
-                            <li>100%优质棉质面料</li>
-                            <li>柔软透气，四季适宜</li>
-                            <li>精致剪裁，版型优雅</li>
-                            <li>多种颜色可选</li>
-                            <li>机洗方便，不易变形</li>
-                        </ul>
+            </div>
+        </div>
+
+        <!-- 产品系列 -->
+        <div class="product-grid">
+            <div class="product-card">
+                <a href="https://www.xiaohongshu.com/goods-detail/68c12fb0403edf0015356dc0?xsec_token=XBh_HPq8CYHJKw8-aqIMTZxA4Y8376K-PMYkgm_eZs_yc=&xsec_source=app_share&instation_link=xhsdiscover%3A%2F%2Fgoods_detail%2F68c12fb0403edf0015356dc0%3Ftrade_ext%3DeyJjaGFubmVsSW5mbyI6bnVsbCwiZHNUb2tlbkluZm8iOm51bGwsInNoYXJlTGluayI6Imh0dHBzOi8vd3d3LnhpYW9ob25nc2h1LmNvbS9nb29kcy1kZXRhaWwvNjhjMTJmYjA0MDNlZGYwMDE1MzU2ZGMwP2FwcHVpZD02NzM4YTBjYjAwMDAwMDAwMDgwMGI2OTUiLCJsaXZlSW5mbyI6bnVsbCwic2hvcEluZm8iOm51bGwsImdvb2RzTm90ZUluZm8iOm51bGwsImNoYXRJbmZvIjpudWxsLCJzZWFyY2hJbmZvIjpudWxsLCJwcmVmZXIiOm51bGx9%26rate_limit_meta%3DitemId%253D68c12fb0403edf0015356db5%26source%3D%26rn%3Dtrue&share_id=94ae3b8487414282af4f974f0926dcdc&share_channel=wechat" style="text-decoration: none;">
+                    <div class="placeholder-image">
+                        女士丝质睡衣图片
+                    </div>
+                </a>
+                <h4>女士丝质睡衣</h4>
+                <p>轻盈丝滑，优雅舒适</p>
+            </div>
+            <div class="product-card">
+                <a href="https://www.xiaohongshu.com/goods-detail/68ee4231c165480015568b92?xsec_token=XBQM427JCDgOoQv4mjlNduXCWFZOa1FilSN4Ra7zgUJBA=&xsec_source=app_share&instation_link=xhsdiscover%3A%2F%2Fgoods_detail%2F68ee4231c165480015568b92%3Ftrade_ext%3DeyJjaGFubmVsSW5mbyI6bnVsbCwiZHNUb2tlbkluZm8iOm51bGwsInNoYXJlTGluayI6Imh0dHBzOi8vd3d3LnhpYW9ob25nc2h1LmNvbS9nb29kcy1kZXRhaWwvNjhlZTQyMzFjMTY1NDgwMDE1NTY4YjkyP2FwcHVpZD02NzM4YTBjYjAwMDAwMDAwMDgwMGI2OTUiLCJsaXZlSW5mbyI6bnVsbCwic2hvcEluZm8iOm51bGwsImdvb2RzTm90ZUluZm8iOm51bGwsImNoYXRJbmZvIjpudWxsLCJzZWFyY2hJbmZvIjpudWxsLCJwcmVmZXIiOm51bGx9%26rate_limit_meta%3DitemId%253D68ee4231c165480015568b79%26source%3D%26rn%3Dtrue&share_id=f08f05635bd44be4a27833fffe92cc65&share_channel=wechat" style="text-decoration: none;">
+                    <div class="placeholder-image">
+                        甜美少女兔子睡衣图片
+                    </div>
+                </a>
+                <h4>甜美少女兔子睡衣</h4>
+                <p>简约设计，舒适透气</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">关于我们</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>蚌埠市禹会区麦麦电子商务工作室</h3>
+                <p>我们是一家专业从事睡衣等生活用品销售的个体工商户，致力于为客户提供优质舒适的居家产品。</p>
+                <p>自成立以来，我们始终坚持"品质第一，客户至上"的经营理念，精心挑选每一件产品，确保为您带来最佳的居家体验。</p>
+                <div class="features">
+                    <div class="feature">
+                        <h4>优质选材</h4>
+                        <p>精选优质面料，确保产品舒适度</p>
+                    </div>
+                    <div class="feature">
+                        <h4>贴心服务</h4>
+                        <p>专业客服团队，提供贴心服务</p>
+                    </div>
+                    <div class="feature">
+                        <h4>快速配送</h4>
+                        <p>高效物流配送，快速送达</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
 
-            <!-- 产品系列 -->
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="女士丝质睡衣" loading="lazy">
-                    <h4>女士丝质睡衣</h4>
-                    <p>轻盈丝滑，优雅舒适</p>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="男士棉质睡衣" loading="lazy">
-                    <h4>男士棉质睡衣</h4>
-                    <p>简约设计，舒适透气</p>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=400&h=300&fit=crop" alt="儿童可爱睡衣" loading="lazy">
-                    <h4>儿童可爱睡衣</h4>
-                    <p>安全面料，可爱图案</p>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=400&h=300&fit=crop" alt="居家拖鞋" loading="lazy">
-                    <h4>舒适居家拖鞋</h4>
-                    <p>柔软防滑，居家必备</p>
-                </div>
+<!-- 联系我们 -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">联系我们</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>公司信息</h4>
+                <p><strong>公司名称：</strong>蚌埠市禹会区麦麦电子商务工作室(个体工商户)</p>
+                <p><strong>主营业务：</strong>睡衣、居家服饰等生活用品销售</p>
+                <p><strong>服务区域：</strong>全国配送</p>
+            </div>
+            <div class="contact-item">
+                <h4>联系方式</h4>
+                <p><strong>营业时间：</strong>9:00-18:00（周一至周日）</p>
+                <p><strong>地址：</strong>安徽省蚌埠市禹会区</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 关于我们 -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">关于我们</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>蚌埠市禹会区麦麦电子商务工作室</h3>
-                    <p>我们是一家专业从事睡衣等生活用品销售的个体工商户，致力于为客户提供优质舒适的居家产品。</p>
-                    <p>自成立以来，我们始终坚持"品质第一，客户至上"的经营理念，精心挑选每一件产品，确保为您带来最佳的居家体验。</p>
-                    <div class="features">
-                        <div class="feature">
-                            <h4>优质选材</h4>
-                            <p>精选优质面料，确保产品舒适度</p>
-                        </div>
-                        <div class="feature">
-                            <h4>贴心服务</h4>
-                            <p>专业客服团队，提供贴心服务</p>
-                        </div>
-                        <div class="feature">
-                            <h4>快速配送</h4>
-                            <p>高效物流配送，快速送达</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 蚌埠市禹会区麦麦电子商务工作室 版权所有</p>
+        <p>为您提供优质的居家生活用品</p>
+    </div>
+</footer>
 
-    <!-- 联系我们 -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">联系我们</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h4>公司信息</h4>
-                    <p><strong>公司名称：</strong>蚌埠市禹会区麦麦电子商务工作室(个体工商户)</p>
-                    <p><strong>主营业务：</strong>睡衣、居家服饰等生活用品销售</p>
-                    <p><strong>服务区域：</strong>全国配送</p>
-                </div>
-                <div class="contact-item">
-                    <h4>联系方式</h4>
-                    <p><strong>营业时间：</strong>9:00-18:00（周一至周日）</p>
-                    <p><strong>地址：</strong>安徽省蚌埠市禹会区</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+    // 平滑滚动导航
+    document.addEventListener('DOMContentLoaded', function() {
+        // 导航链接点击事件
+        const navLinks = document.querySelectorAll('.nav a[href^="#"]');
 
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 蚌埠市禹会区麦麦电子商务工作室 版权所有</p>
-            <p>为您提供优质的居家生活用品</p>
-        </div>
-    </footer>
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
 
-    <script src="script.js"></script>
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80; // 减去固定头部高度
+
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 滚动时高亮当前导航项
+        const sections = document.querySelectorAll('section[id]');
+
+        function highlightCurrentSection() {
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    // 移除所有活动类
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    // 添加当前活动类
+                    const activeLink = document.querySelector(`.nav a[href="#${sectionId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        // 滚动事件监听
+        window.addEventListener('scroll', highlightCurrentSection);
+
+        // 产品卡片悬停效果
+        const productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // 移动端菜单切换
+        const toggleButton = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('.nav');
+
+        if (toggleButton && nav) {
+            toggleButton.addEventListener('click', () => {
+                nav.classList.toggle('mobile-active');
+            });
+        }
+    });
+</script>
 </body>
 </html>
